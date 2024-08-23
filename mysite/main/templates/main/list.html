@@ -7,20 +7,39 @@
 {%block content%}
 <h1>{{ls.name}}</h1>
 <form method="post" action="#">
-<u1>
     {%csrf_token%}
+    
+    
     {% for item in ls.item_set.all %}
-        {% if item.complete == True %}
-            <li><input type="checkbox",value="clicked",name="c{{item.id}}" checked>{{item.text}}</input></li>
-        {%else%}
-            <li><input type="checkbox",value="clicked",name="c{{item.id}}">{{item.text}}</input></li>
-        {%endif%}
+    <div class="input-group mb-3">
 
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                {% if item.complete == True %}
+                    <input type="checkbox",value="clicked",name="c{{item.id}}" checked>{{item.text}}</input>
+                {%else%}
+                    <input type="checkbox",value="clicked",name="c{{item.id}}">{{item.text}}</input>
+                {%endif%}
+            </div>
+        </div>
+        <input type="text",value="{{item.text}}, class="form-control>
+    </div>
     {%endfor%}
-</u1>
-<button type="submit" name="save" value="save">save</button>
-<input type="text" name="new">
-<button type="submit" name="newitem" value="nnewitem">add Item </button>
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+    <button type="submit" name="newitem" value="newitem",class="btn btn-success">add Item </button>
+    </div>
+    <input type="text" name="new">
+</div>
+    
+    
+    
+    
+    <button type="submit",name="save", value="save", class="btn btn-success">Save</button>
+
+
+
 
 </form>
 {% endblock %}

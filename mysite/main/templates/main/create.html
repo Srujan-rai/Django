@@ -6,11 +6,15 @@ create new block
 
 {%block content%}
 
-<form method="post" action="/create/">
+<form method="post" action="/create/" class="form-group">
      {% csrf_token %}
-    {{forms.as_p}}
-    <button type="submit" name="save" placeholder="click here">save    </button>
-
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <button type="submit" name="save" placeholder="click here" class="btn btn-success">Create New </button>
+        </div>
+    
+    {{form.name}}
+    <div>
 </form>
 
 
